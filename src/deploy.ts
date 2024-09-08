@@ -158,7 +158,13 @@ export async function deployProductionSite(
   const { projectId, target, firebaseToolsVersion } = productionDeployConfig;
 
   const deploymentText = await execWithCredentials(
-    ["deploy", "--only", `hosting${target ? ":" + target : ""}`],
+    [
+      "deploy",
+      "--only",
+      `hosting${
+        target ? ":" + target : ""
+      },functions,database,storage,firestore`,
+    ],
     projectId,
     gacFilename,
     { firebaseToolsVersion }
