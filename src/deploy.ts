@@ -163,7 +163,7 @@ export async function deployProductionSite(
       "--only",
       `hosting${
         target ? ":" + target : ""
-      },functions,database,storage,firestore`,
+      },functions,storage,firestore`,
     ],
     projectId,
     gacFilename,
