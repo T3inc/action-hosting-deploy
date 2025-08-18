@@ -164,10 +164,11 @@ export async function deployProductionSite(
       `hosting${
         target ? ":" + target : ""
       },functions,storage,firestore`,
+      "--non-interactive"
     ],
     projectId,
     gacFilename,
-    { firebaseToolsVersion }
+    { debug: true, firebaseToolsVersion }
   );
 
   const deploymentResult = JSON.parse(deploymentText) as
